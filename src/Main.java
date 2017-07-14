@@ -1,20 +1,27 @@
-import java.util.*;
-
-public class Main
-{
-	public static void main(String[] args)
-	{
-		System.out.println("Hello World!");
-
-		Scanner input = new Scanner(System.in);
-
-		System.out.print("Enter a number: ");
-		double number1 = input.nextDouble();
-
-		System.out.print("Enter second number: ");
-		double number2 = input.nextDouble();
-
-		double product = number1 * number2;
-		System.out.printf("The product of both numbers is: %f", product);
-	}
-}
+class SleepMessages implements Runnable
+ { 
+    public static void main(String args[])
+ { 
+	 Thread t1 = new Thread(new SleepMessages());
+	 t1.start();
+	 t1.interrupt();
+ }
+	public void run()
+	{ 
+     String importantInfo[] = { "Mares eat oats"
+	                          , "Does eat oats"
+							  , "Little lambs eat ivy"
+							  , "A kid will eat ivy too" }; 
+							  
+	 for (int i = 0; i < importantInfo.length; i++)
+     { //Pause for 4 seconds 
+	 try{
+	    Thread.sleep(4000);
+		} catch (InterruptedException ie) {
+			System.out.println("Thread is interrupted!");
+		}
+		//Print a message 
+		System.out.println(importantInfo[i]); 
+	 } 
+   } 
+}  
